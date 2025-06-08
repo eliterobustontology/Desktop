@@ -1,0 +1,41 @@
+{
+  "name": "elite",
+  "version": "1.0.0",
+  "description": "Framework to Build Desktop Apps",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "elite, elite robust ontology",
+    "build": "electron-builder"
+  },
+  "keywords": [
+    "elite",
+    "desktop",
+    "framework"
+  ],
+  "author": "Elite",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^36.2.1",
+    "electron-builder": "^26.0.12"
+  },
+  "dependencies": {
+    "electron-store": "^8.1.0"
+  },
+  "build": {
+    "appId": "com.elite.framework",
+    "productName": "Elite Framework",
+    "win": {
+      "icon": "build/icon.ico",
+      "target": "nsis"
+    },
+    "mac": {
+      "icon": "build/icon.icns",
+      "target": "dmg"
+    },
+    "linux": {
+      "icon": "build/icon.png",
+      "target": "AppImage"
+    }
+  }
+}
