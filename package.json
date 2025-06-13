@@ -26,15 +26,15 @@
     "appId": "com.elite.framework",
     "productName": "App Manager",
     "win": {
-      "icon": "build/icon.ico",
+      "icon": "public/icon.ico",
       "target": "nsis"
     },
     "mac": {
-      "icon": "build/icon.icns",
+      "icon": "public/icon.icns",
       "target": "dmg"
     },
     "linux": {
-      "icon": "build/icon.png",
+      "icon": "public/icon.png",
       "target": "AppImage"
     }
   }
