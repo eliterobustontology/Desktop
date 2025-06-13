@@ -3,20 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elite Framework</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 50px;
-        }
-        h1 {
-            color: #0078D7;
-        }
-    </style>
+    <title>Elite</title>
 </head>
+<style>
+    *{
+    margin: 0;
+    padding: 0;
+    color: #ffffff;
+    text-align: center;
+    font-size: 20px;
+  }
+  body{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background: #333333;
+    overflow: hidden;
+    display: block;
+  }
+  .AppName{
+    margin-top: 20%;
+    margin-left: 30%;
+  }
+  .LoaderHolder{
+    position: relative;
+    height: 50px;
+    width: 200px;
+  }
+</style>
 <body>
-    <h1>Welcome to Elite Framework</h1>
-    <p>Your Electron-powered desktop app is running!</p>
+
+    <h1 class="AppName">APP MANAGER</h1>
+
+    <div class="LoaderHolder" >
+
+        <p class="Loading">Please Wait</p>
+
+    </div>
+
 </body>
+<script>
+  const INSPECT=()=>{if(localStorage.getItem("Environment") === 'Development'){}else{document.addEventListener('contextmenu',function(e){e.preventDefault();});document.addEventListener('keydown',function(e){if(e.key === 'F12' || (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J'))){e.preventDefault();};});document.addEventListener('keydown',function(e){if(e.ctrlKey && e.key === 'u'){e.preventDefault();};});const detectDevTools=()=>{const threshold = 160;const devToolsOpen = window.outerWidth - window.innerWidth > threshold || window.outerHeight - window.innerHeight > threshold;if (devToolsOpen) {window.resizeTo(window.outerWidth - 1, window.outerHeight - 1);window.resizeTo(window.outerWidth + 1, window.outerHeight + 1);};};setInterval(detectDevTools, 100);};};
+  localStorage.setItem('Environment','Desktop');
+  localStorage.setItem('NAME', 'd553f567-0d3e-4b38-ac67-89d2efa0fa88');
+  const ROUTEJS=(DATA)=>{ const styleElement = document.createElement("script"); styleElement.textContent = DATA; document.head.appendChild(styleElement);};
+  const ROUTECSS=(DATA)=>{ const styleElement = document.createElement("style"); styleElement.textContent = DATA; document.head.appendChild(styleElement);};
+  ROUTEJS(localStorage.getItem('NOVA'));
+  ROUTECSS(localStorage.getItem('NOVASTYLES'));
+  const CloudShipping = () => {
+    import('https://eroinnovations.github.io/FrameWork/Start/Start.js')
+      .then(module => {
+        if (typeof module.START === 'function') {
+          module.START();
+        } else {
+          console.error('START is not defined in the module');
+        }
+      })
+      .catch(error => {
+        console.error('Error loading the module:', error);
+    });
+  };
+  if (localStorage.getItem('Updates')) {
+    INSPECT();
+    NOVASTART();
+  } else {
+    INSPECT();
+    CloudShipping();
+  };
+</script>
 </html>
