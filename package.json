@@ -1,5 +1,5 @@
 {
-  "name": "app_manager",
+  "name": "elite_robust_ontology",
   "version": "1.0.0",
   "description": "Elite Project Manager",
   "main": "index.js",
@@ -24,7 +24,7 @@
   },
   "build": {
     "appId": "com.elite.framework",
-    "productName": "Elite Framework",
+    "productName": "App Manager",
     "win": {
       "icon": "build/icon.ico",
       "target": "nsis"
