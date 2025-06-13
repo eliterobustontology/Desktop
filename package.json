@@ -1,7 +1,7 @@
 {
-  "name": "elite",
+  "name": "app_manager",
   "version": "1.0.0",
-  "description": "Framework to Build Desktop Apps",
+  "description": "Elite Project Manager",
   "main": "index.js",
   "scripts": {
     "start": "electron .",
