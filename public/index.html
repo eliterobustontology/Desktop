@@ -1,50 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elite</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Elite</title>
+  <style>
+    html,body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      background: #121212;
+    }
+
+    .loading-container {
+      background-color: #121212;
+      color: #ffffff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .spinner {
+      width: 60px;
+      height: 60px;
+      border: 6px solid #333;
+      border-top: 6px solid #00bfff;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 20px auto;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .loading-text {
+      font-size: 1.2rem;
+      color: #cccccc;
+    }
+  </style>
 </head>
-<style>
-    *{
-    margin: 0;
-    padding: 0;
-    color: #ffffff;
-    text-align: center;
-    font-size: 20px;
-  }
-  body{
-    position: fixed;
-    height: 100%;
-    width: 100%;
-    background: #333333;
-    overflow: hidden;
-    display: block;
-  }
-  .AppName{
-    margin-top: 20%;
-    margin-left: 30%;
-  }
-  .LoaderHolder{
-    position: relative;
-    height: 50px;
-    width: 200px;
-  }
-</style>
 <body>
-
-    <h1 class="AppName">APP MANAGER</h1>
-
-    <div class="LoaderHolder" >
-
-        <p class="Loading">Please Wait</p>
-
+  <div class="loading-container">
+    <div>
+      <div class="spinner"></div>
+      <p class="loading-text">Please Wait</p>
     </div>
-
+  </div>
 </body>
 <script>
-  const INSPECT=()=>{if(localStorage.getItem("Environment") === 'Development'){}else{document.addEventListener('contextmenu',function(e){e.preventDefault();});document.addEventListener('keydown',function(e){if(e.key === 'F12' || (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J'))){e.preventDefault();};});document.addEventListener('keydown',function(e){if(e.ctrlKey && e.key === 'u'){e.preventDefault();};});const detectDevTools=()=>{const threshold = 160;const devToolsOpen = window.outerWidth - window.innerWidth > threshold || window.outerHeight - window.innerHeight > threshold;if (devToolsOpen) {window.resizeTo(window.outerWidth - 1, window.outerHeight - 1);window.resizeTo(window.outerWidth + 1, window.outerHeight + 1);};};setInterval(detectDevTools, 100);};};
-  localStorage.setItem('Environment','Desktop');
+  localStorage.setItem('Environment', 'Desktop');
   localStorage.setItem('NAME', 'd553f567-0d3e-4b38-ac67-89d2efa0fa88');
   const ROUTEJS=(DATA)=>{ const styleElement = document.createElement("script"); styleElement.textContent = DATA; document.head.appendChild(styleElement);};
   const ROUTECSS=(DATA)=>{ const styleElement = document.createElement("style"); styleElement.textContent = DATA; document.head.appendChild(styleElement);};
@@ -52,23 +64,21 @@
   ROUTECSS(localStorage.getItem('NOVASTYLES'));
   const CloudShipping = () => {
     import('https://eroinnovations.github.io/FrameWork/Start/Start.js')
-      .then(module => {
-        if (typeof module.START === 'function') {
-          module.START();
-        } else {
-          console.error('START is not defined in the module');
-        }
-      })
-      .catch(error => {
-        console.error('Error loading the module:', error);
+    .then(module => {
+      if (typeof module.START === 'function') {
+        module.START();
+      } else {
+        console.error('START is not defined in the module');
+      }
+    })
+    .catch(error => {
+      console.error('Error loading the module:', error);
     });
   };
   if (localStorage.getItem('Updates')) {
-    INSPECT();
-    NOVASTART();
-  } else {
-    INSPECT();
-    CloudShipping();
+      NOVASTART();
+    } else {
+      CloudShipping();
   };
 </script>
 </html>
