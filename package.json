@@ -1,5 +1,5 @@
 {
-  "name": "elite_robust_ontology",
+  "name": "app_manager",
   "version": "1.0.0",
   "description": "Elite Project Manager",
   "main": "index.js",
@@ -23,7 +23,7 @@
     "electron-store": "^8.1.0"
   },
   "build": {
-    "appId": "com.elite.framework",
+    "appId": "com.elite.app_manager",
     "productName": "App Manager",
     "win": {
       "icon": "public/icon.ico",
