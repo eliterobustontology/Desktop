@@ -1,0 +1,12 @@
+{
+    "name":"Qel",
+    "version":"1",
+    "windowsicon":"https://drive.google.com/uc?export=download&id=1ivAdh2lt8Ob0oljm1-Fd5iHqRwUBnDtw",
+    "macicon":"https://drive.google.com/uc?export=download&id=1ivAdh2lt8Ob0oljm1-Fd5iHqRwUBnDtw",
+    "linuxicon":"https://drive.google.com/uc?export=download&id=1ivAdh2lt8Ob0oljm1-Fd5iHqRwUBnDtw",
+    "description":"Qel Medistore App",
+    "appId":"com.elite.qel",
+    "productName":"Qel",
+    "color":"red",
+    "ID":"8e66d79d-84b7-4ba0-9d60-0e74189675c45"
+}

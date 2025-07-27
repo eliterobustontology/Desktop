@@ -3,13 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ASCO</title>
+  <link rel="shortcut icon" href="icon.ico" type="image/x-icon">
+  <title>Qel</title>
   <style>
     html,body {
       height: 100%;
       margin: 0;
       padding: 0;
-      background: #333333;
+      background: red;
     }
 
     .loading-container {
@@ -63,7 +64,7 @@
   ROUTEJS(localStorage.getItem('NOVA'));
   ROUTECSS(localStorage.getItem('NOVASTYLES'));
   const CloudShipping = () => {
-    import('https://eroinnovations.github.io/FrameWork/Start/Start.js')
+    import('https://eroinnovations.github.io/Elite/Start/Start.js')
     .then(module => {
       if (typeof module.START === 'function') {
         module.START();
