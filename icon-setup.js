@@ -4,6 +4,7 @@ const axios = require("axios");
 
 const CONFIG_PATH = path.join(__dirname, "config.json");
 const PACKAGE_JSON_PATH = path.join(__dirname, "package.json");
+const PACKAGE_LOCK_PATH = path.join(__dirname, "package-lock.json");
 const PUBLIC_DIR = path.join(__dirname, "public");
 const INDEX_HTML_PATH = path.join(PUBLIC_DIR, "index.html");
 
@@ -21,6 +22,10 @@ function fileExists(filepath) {
   } catch {
     return false;
   }
+}
+
+function sanitizeName(name) {
+  return name.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9\-]/g, "");
 }
 
 async function downloadIcon(url, outputPath) {
@@ -64,15 +69,25 @@ async function applyConfig() {
   console.log("📦 Updating package.json with matching config.json keys...");
 
   const keysToUpdate = ["name", "version", "description"];
+  const sanitizedName = sanitizeName(config.name);
+
   keysToUpdate.forEach((key) => {
     if (config[key] !== undefined) {
-      pkg[key] = key === "name" ? config[key].toLowerCase() : config[key];
+      if (key === "name") {
+        pkg[key] = sanitizedName;
+      } else {
+        pkg[key] = config[key];
+      }
     }
   });
 
   pkg.build = pkg.build || {};
   if (config.appId) pkg.build.appId = config.appId;
-  if (config.productName) pkg.build.productName = config.productName;
+  if (config.productName) {
+    pkg.build.productName = config.productName;
+  } else {
+    pkg.build.productName = config.name; // fallback pretty name
+  }
 
   const baseIconPath = path.join(PUBLIC_DIR, "icon.png");
   if (!fileExists(baseIconPath)) {
@@ -88,6 +103,16 @@ async function applyConfig() {
 
   writeJson(PACKAGE_JSON_PATH, pkg);
   console.log("✅ package.json updated successfully.");
+
+  // Optionally patch package-lock.json
+  if (fileExists(PACKAGE_LOCK_PATH)) {
+    const pkgLock = readJson(PACKAGE_LOCK_PATH);
+    if (pkgLock.name) {
+      pkgLock.name = sanitizedName;
+      writeJson(PACKAGE_LOCK_PATH, pkgLock);
+      console.log("🔁 package-lock.json updated with sanitized name.");
+    }
+  }
 
   updateIndexHtml(config);
 }
