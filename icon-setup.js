@@ -4,7 +4,6 @@ const axios = require("axios");
 
 const CONFIG_PATH = path.join(__dirname, "config.json");
 const PACKAGE_JSON_PATH = path.join(__dirname, "package.json");
-const PACKAGE_LOCK_PATH = path.join(__dirname, "package-lock.json");
 const PUBLIC_DIR = path.join(__dirname, "public");
 const INDEX_HTML_PATH = path.join(PUBLIC_DIR, "index.html");
 
@@ -58,34 +57,6 @@ function updateIndexHtml(config) {
   console.log("🎨 index.html updated (title, background color, NAME ID).");
 }
 
-// Recursive deep update of matching keys anywhere inside obj
-function deepUpdate(obj, config, keysToUpdate) {
-  if (typeof obj !== "object" || obj === null) return;
-
-  for (const key of Object.keys(obj)) {
-    if (keysToUpdate.includes(key) && config[key] !== undefined) {
-      obj[key] = key === "name" ? config[key].toLowerCase() : config[key];
-    } else if (typeof obj[key] === "object" && obj[key] !== null) {
-      deepUpdate(obj[key], config, keysToUpdate);
-    }
-  }
-}
-
-function updatePackageLock(config) {
-  if (!fileExists(PACKAGE_LOCK_PATH)) {
-    console.warn("⚠️ package-lock.json not found, skipping.");
-    return;
-  }
-
-  const pkgLock = readJson(PACKAGE_LOCK_PATH);
-  const keysToUpdate = ["name", "version", "description"];
-
-  deepUpdate(pkgLock, config, keysToUpdate);
-
-  writeJson(PACKAGE_LOCK_PATH, pkgLock);
-  console.log("🔒 package-lock.json updated recursively.");
-}
-
 async function applyConfig() {
   const config = readJson(CONFIG_PATH);
   const pkg = readJson(PACKAGE_JSON_PATH);
@@ -118,7 +89,6 @@ async function applyConfig() {
   writeJson(PACKAGE_JSON_PATH, pkg);
   console.log("✅ package.json updated successfully.");
 
-  updatePackageLock(config);
   updateIndexHtml(config);
 }
 
