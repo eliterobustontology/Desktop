@@ -1,11 +1,11 @@
 {
   "name": "asco",
   "version": "1.0.0",
-  "description": "Site Manager For  Ashakur",
+  "description": "Site Manager For Ashakur",
   "main": "index.js",
   "scripts": {
     "start": "electron .",
-    "test": "elite, elite robust ontology",
+    "test": "echo \"No test specified\" && exit 0",
     "build": "electron-builder"
   },
   "keywords": [
@@ -25,6 +25,17 @@
   "build": {
     "appId": "com.elite.asco",
     "productName": "ASCO",
+    "files": [
+      "**/*",
+      "!node_modules/*/{CHANGELOG.md,README.md,README,readme.md,readme}",
+      "!**/.*",
+      "!**/*.md",
+      "!**/test{,s}/**",
+      "!**/__tests__/**"
+    ],
+    "directories": {
+      "output": "dist"
+    },
     "win": {
       "icon": "public/icon.ico",
       "target": "nsis"
@@ -36,6 +47,7 @@
     "linux": {
       "icon": "public/icon.png",
       "target": "AppImage"
-    }
+    },
+    "publish": null
   }
 }
