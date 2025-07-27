@@ -1,7 +1,7 @@
 {
-  "name": "app_manager",
+  "name": "asco",
   "version": "1.0.0",
-  "description": "Elite Project Manager",
+  "description": "Site Manager For  Ashakur",
   "main": "index.js",
   "scripts": {
     "start": "electron .",
@@ -23,8 +23,8 @@
     "electron-store": "^8.1.0"
   },
   "build": {
-    "appId": "com.elite.app_manager",
-    "productName": "App Manager",
+    "appId": "com.elite.asco",
+    "productName": "ASCO",
     "win": {
       "icon": "public/icon.ico",
       "target": "nsis"
