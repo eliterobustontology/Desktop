@@ -4,9 +4,17 @@
     "windowsicon":"https://drive.google.com/uc?export=download&id=1ivAdh2lt8Ob0oljm1-Fd5iHqRwUBnDtw",
     "macicon":"https://drive.google.com/uc?export=download&id=1ivAdh2lt8Ob0oljm1-Fd5iHqRwUBnDtw",
     "linuxicon":"https://drive.google.com/uc?export=download&id=1ivAdh2lt8Ob0oljm1-Fd5iHqRwUBnDtw",
+<<<<<<< HEAD
     "description":"Qel Medistore App",
+=======
+    "description":"Qel Medistore App With Products",
+>>>>>>> 3cb2b3e3dc9a6352badea80e0c5131e3815518ab
     "appId":"com.elite.qel_medistore",
     "productName":"Qel_Manager",
     "color":"#333333",
     "ID":"17ea81ea-b4fa-4b7a-8f3e-10ef438b880f"
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 3cb2b3e3dc9a6352badea80e0c5131e3815518ab
