@@ -1,5 +1,5 @@
 {
-  "name": "qel medistore",
+  "name": "qelmanager",
   "version": "1.0.0",
   "description": "Qel Medistore App",
   "main": "index.js",
@@ -28,8 +28,8 @@
     "electron-store": "^8.1.0"
   },
   "build": {
-    "appId": "com.elite.qel",
-    "productName": "Qel",
+    "appId": "com.elite.qel_medistore",
+    "productName": "Qel_Manager",
     "files": [
       "**/*",
       "!node_modules/*/{CHANGELOG.md,README.md,README,readme.md,readme}",

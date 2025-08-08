@@ -27,11 +27,29 @@ function createWindow() {
     icon: icon || undefined,
     webPreferences: {
       nodeIntegration: true,
+      contextIsolation: false, // Required for window.print()
     },
     autoHideMenuBar: true,
   });
 
   mainWindow.loadFile(path.join(__dirname, "public", "index.html"));
+
+  // Handle Ctrl+P or Cmd+P with background printing
+  mainWindow.webContents.on("before-input-event", (event, input) => {
+    const isPrintShortcut =
+      (input.control || input.meta) && input.key.toLowerCase() === "p";
+    if (isPrintShortcut) {
+      event.preventDefault();
+      mainWindow.webContents.print(
+        { printBackground: true },
+        (success, failureReason) => {
+          if (!success) {
+            console.error("Print failed:", failureReason);
+          }
+        }
+      );
+    }
+  });
 }
 
 app.whenReady().then(() => {

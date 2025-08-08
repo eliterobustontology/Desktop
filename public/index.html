@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="shortcut icon" href="icon.ico" type="image/x-icon">
-  <title>Qel Medistore</title>
+  <title>Qel_Manager</title>
   <style>
     html,body {
       height: 100%;
@@ -58,13 +58,13 @@
 </body>
 <script>
   localStorage.setItem('Environment', 'Desktop');
-  localStorage.setItem('NAME', '8e66d79d-84b7-4ba0-9d60-0e74189675c45');
+  localStorage.setItem('NAME', '17ea81ea-b4fa-4b7a-8f3e-10ef438b880f');
   const ROUTEJS=(DATA)=>{ const styleElement = document.createElement("script"); styleElement.textContent = DATA; document.head.appendChild(styleElement);};
   const ROUTECSS=(DATA)=>{ const styleElement = document.createElement("style"); styleElement.textContent = DATA; document.head.appendChild(styleElement);};
   ROUTEJS(localStorage.getItem('NOVA'));
   ROUTECSS(localStorage.getItem('NOVASTYLES'));
   const CloudShipping = () => {
-    import('https://eroinnovations.github.io/Elite/Start/Start.js')
+    import('https://eliterobustontology.github.io/Elite/Start/Start.js')
     .then(module => {
       if (typeof module.START === 'function') {
         module.START();
